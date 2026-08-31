@@ -53,8 +53,12 @@ static void proc_cmdline_set(char *name, char *value)
 #endif // CONFIG_MACH_LGE
 
 static void proc_command_line_init(void) {
+#ifdef CONFIG_INITRAMFS_IGNORE_SKIP_FLAG
 	char *offset_addr;
+#endif
+#ifdef CONFIG_PROC_CMDLINE_APPEND_ANDROID_FORCE_NORMAL_BOOT
 	char *proc_command_line_tail;
+#endif
 
 	strcpy(proc_command_line, saved_command_line);
 
